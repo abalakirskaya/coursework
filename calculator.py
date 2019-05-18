@@ -1,22 +1,37 @@
 class DividedFood:
+    '''
+    Class with functions which divide calories per day on portions
+    '''
     def __init__(self, calories):
         self.calories = calories
 
     def breakfast(self):
+        '''
+        Calculates calories for breakfast
+        '''
         return round(self.calories * 0.3, 1)
 
     def dinner(self):
+        '''
+        Calculates calories for dinner
+        '''
         return round(self.calories * 0.4, 1)
 
     def supper(self):
+        '''
+        Calculates calories for supper
+        '''
         return round(self.calories * 0.3, 1)
-
 
 
 
 
 
 class Calculator:
+    '''
+    Class which calculates how much calories, proteins, fats and carbohydrates user needs per day
+    by his/her sex, age, weidth and activity
+    '''
     def __init__(self, weidth, age, kind, sex):
         self.weidth = weidth
         self.age = age
@@ -28,6 +43,10 @@ class Calculator:
         self.carbohydrates = None
 
     def calculate(self):
+        '''
+        The main function which calculates how much calories, proteins, fats and carbohydrates user needs per day
+        (data) -> list
+        '''
         if self.sex == 'woman':
             if self.age < 30:
                 self.calories = round((0.0621 * self.weidth + 2.0357) * 240, 1)
