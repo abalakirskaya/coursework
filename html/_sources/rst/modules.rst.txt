@@ -1,0 +1,13 @@
+project
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   calculator
+   main
+   menu
+   results
+   stack
+   stack_test
+   user_menu

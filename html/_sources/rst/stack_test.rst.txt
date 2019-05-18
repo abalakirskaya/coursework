@@ -1,0 +1,7 @@
+stack\_test module
+==================
+
+.. automodule:: stack_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
