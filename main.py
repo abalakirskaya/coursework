@@ -2,6 +2,7 @@ from calculator import Calculator, DividedFood
 import calculator
 import user_menu
 import menu
+from stack import Stack
 sex = input('Enter your sex - man of woman:\n')
 age = int(input('Enter your age:\n'))
 weidth = int(input('Enter your weidth:\n'))
@@ -66,15 +67,19 @@ user_supper_carbohydrates = carbohydrates(user_supper_calories)
 file = open('today_menu.txt', encoding = 'utf-8')
 result_menu = user_menu.ration(user_breakfast_calories, user_breakfast_proteins, user_breakfast_fats, user_breakfast_carbohydrates, user_dinner_calories, user_dinner_proteins, user_dinner_fats, user_dinner_carbohydrates, user_supper_calories, user_supper_proteins, user_supper_fats, user_supper_carbohydrates, file)
 
-print('For your breakfast you can take:')
-for i in range(0, len(result_menu[0])):
-    print(result_menu[0][i][0][1:-1])
-print('For your dinner you can take:')
-for i in range(0, len(result_menu[1])):
-    print(result_menu[1][i][0][1:-1])
-print('For your supper you can take:')
-for i in range(0, len(result_menu[2])):
-    print(result_menu[2][i][0][1:-1])
-print('As a second breakfast or in afternoon you can also take:')
+result = Stack()
 for i in range(0, len(result_menu[3])):
-    print(result_menu[3][i][0][1:-1])
+    result.push(result_menu[3][i][0][1:-1])
+result.push('As a second breakfast or in afternoon you can also take:')
+for i in range(0, len(result_menu[2])):
+    result.push(result_menu[2][i][0][1:-1])
+result.push('For your supper you can take:')
+for i in range(0, len(result_menu[1])):
+    result.push(result_menu[1][i][0][1:-1])
+result.push('For your dinner you can take:')
+for i in range(0, len(result_menu[0])):
+    result.push(result_menu[0][i][0][1:-1])
+result.push('For your breakfast you can take:')
+
+while result.is_empty() is False:
+    print(result.pop())
