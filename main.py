@@ -1,6 +1,6 @@
 from calculator import Calculator, DividedFood
 import calculator
-import example
+import user_menu
 import menu
 sex = input('Enter your sex - man of woman:\n')
 age = int(input('Enter your age:\n'))
@@ -64,7 +64,7 @@ user_supper_fats = fats(user_supper_calories)
 user_supper_carbohydrates = carbohydrates(user_supper_calories)
 
 file = open('today_menu.txt', encoding = 'utf-8')
-result_menu = example.ration(user_breakfast_calories, user_breakfast_proteins, user_breakfast_fats, user_breakfast_carbohydrates, user_dinner_calories, user_dinner_proteins, user_dinner_fats, user_dinner_carbohydrates, user_supper_calories, user_supper_proteins, user_supper_fats, user_supper_carbohydrates, file)
+result_menu = user_menu.ration(user_breakfast_calories, user_breakfast_proteins, user_breakfast_fats, user_breakfast_carbohydrates, user_dinner_calories, user_dinner_proteins, user_dinner_fats, user_dinner_carbohydrates, user_supper_calories, user_supper_proteins, user_supper_fats, user_supper_carbohydrates, file)
 
 print('For your breakfast you can take:')
 for i in range(0, len(result_menu[0])):
